@@ -1,73 +1,87 @@
-# SimpleSwap.sol
+# 💱 SimpleSwap – Final Project (Module 3)
 
-# 🧪 SimpleSwap – Final Project Module 3
+## 🧠 Description
 
-Smart contract developed as a final project for Module 3. It replicates basic Uniswap functions such as adding/removing liquidity, swapping ERC20 tokens, price calculation, and output estimation.
+**SimpleSwap** is a smart contract that replicates a simplified version of Uniswap.  
+It allows users to:
 
-## 🚀 Contract Address
+- Add and remove liquidity between two ERC20 tokens
+- Swap tokens with real-time pricing
+- View price ratios and calculate output amounts
 
-**SimpleSwap:**  
-`0x445b9d8c04676E83e1eeb83ca8092327efd4a599`
+---
 
-**ERC20 Token A:**  
-`0x1d8Ec885fbC6446F28536ba6c3234C841Cd1f415`
+## 📦 Smart Contracts (Sepolia Testnet)
 
-**ERC20 Token B:**  
-`0xF53FD5d7d0425Cd4d940F12774B6A3e32C0c3589`
+- **🧠 SimpleSwap Contract:**  
+  [`0x445b9d8c04676E83e1eeb83ca8092327efd4a599`](https://sepolia.etherscan.io/address/0x445b9d8c04676E83e1eeb83ca8092327efd4a599#code)
 
-## ⚙️ Features
+- **🪙 Token A (TestTokenA):**  
+  [`0x1d8Ec885fbC6446F28536ba6c3234C841Cd1f415`](https://sepolia.etherscan.io/address/0x1d8Ec885fbC6446F28536ba6c3234C841Cd1f415)
 
-- `addLiquidity(address tokenA, address tokenB, ...)`: Add token pairs to the pool.
-- `removeLiquidity(address tokenA, address tokenB, ...)`: Withdraw liquidity from the pool.
-- `swapExactTokensForTokens(uint amountIn, ...)`: Swap a fixed input of tokens.
-- `getPrice(address tokenA, address tokenB)`: Get price of token A in terms of B.
-- `getAmountOut(uint amountIn, uint reserveIn, uint reserveOut)`: Simulate swap output.
+- **🪙 Token B (TestTokenB):**  
+  [`0xF53FD5d7d0425Cd4d940F12774B6A3e32C0c3589`](https://sepolia.etherscan.io/address/0xF53FD5d7d0425Cd4d940F12774B6A3e32C0c3589)
 
-## 🧑‍💻 Deployment & Usage
+---
 
-### 1. Deploy Tokens
-- Use Remix and MetaMask to deploy two ERC20 tokens with 18 decimals.
-- Make sure each token has a different name and symbol.
+## ⚙️ Functions Implemented
 
-### 2. Deploy SimpleSwap
-- Deploy `SimpleSwap.sol` using Remix.
+### 🔹 `addLiquidity(...)`
+Adds tokenA and tokenB liquidity into the pool.
+Returns actual amounts and liquidity issued.
 
-### 3. Add Liquidity
+### 🔹 `removeLiquidity(...)`
+Removes liquidity from the pool and sends back the token amounts.
 
-```js
-amountADesired: 100000000000000000000
-amountBDesired: 100000000000000000000
-amountAMin:     95000000000000000000
-amountBMin:     95000000000000000000
-to:             0xYourAddress
+### 🔹 `swapExactTokensForTokens(...)`
+Swaps exact amount of tokenA for tokenB using internal reserves.
+
+### 🔹 `getPrice(...)`
+Returns the price of tokenA in terms of tokenB.
+
+### 🔹 `getAmountOut(...)`
+Calculates how many tokenB units you receive when sending tokenA.
+
+---
+
+## 📋 Example Parameters (used in Sepolia)
+
+### ✅ Add Liquidity
+```text
+amountADesired: 100000000000000000000  // 100 tokenA
+amountBDesired: 100000000000000000000  // 100 tokenB
+amountAMin:     95000000000000000000   // min 95 A
+amountBMin:     95000000000000000000   // min 95 B
+to:             0x573F181A3C105557f0A028712BEE62dC21f4Ec91
 deadline:       9999999999
 
-approve("0x445b9d8c04676E83e1eeb83ca8092327efd4a599", amount)
 
-amountIn:     10000000000000000000
-amountOutMin: 1
-path: [
-  "0x1d8Ec885fbC6446F28536ba6c3234C841Cd1f415", 
-  "0xF53FD5d7d0425Cd4d940F12774B6A3e32C0c3589"
-]
-to:       0xYourAddress
-deadline: 9999999999
+amountIn:       1000000000000000000     // 1 tokenA
+amountOutMin:   1
+path:           [tokenA, tokenB]
+to:             0x573F181A3C105557f0A028712BEE62dC21f4Ec91
+deadline:       9999999999
 
 
-getPrice(tokenA, tokenB)
+Test Steps (on Remix + MetaMask)
+Deploy 2 ERC20 tokens: Token A & Token B from different contracts
 
-getAmountOut(amountIn, reserveIn, reserveOut)
+Deploy SimpleSwap and save the contract address
 
-getAmountOut(amountIn, reserveIn, reserveOut)
+Approve SimpleSwap to move token A and B on your behalf
 
-All tokens have 18 decimals.
+Add liquidity using correct token addresses
 
-Approve is required before swap or liquidity operations.
+Use swap function with exact input amount
 
-All functions are commented in English following NatSpec standard.
+Check balances on MetaMask or Etherscan
 
 
-All contracts were deployed and verified using Remix + Sepolia.
+SimpleSwapFinal/
+├── SimpleSwap.sol     # Main contract with all logic
+└── README.md          # Documentation (this file)
 
-Verified source code available on Etherscan
 
+Final Project for Blockchain Development - Module 3
+Submitted by: Adriel Correa
+Wallet: 0x573F181A3C105557f0A028712BEE62dC21f4Ec91
