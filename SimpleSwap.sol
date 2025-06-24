@@ -126,9 +126,16 @@ contract SimpleSwap {
         return amountOut;
     }
 
-    function getPrice() external view returns (uint256 price) {
-        require(reserveA > 0 && reserveB > 0, "No liquidity");
-        return (reserveB * 1e18) / reserveA;
+    function getPrice(address _tokenA, address _tokenB) external view returns (uint256 price) {
+        require((_tokenA == tokenA && _tokenB == tokenB) || (_tokenA == tokenB && _tokenB == tokenA), "Invalid token pair");
+
+        if (_tokenA == tokenA) {
+            require(reserveA > 0, "No liquidity A");
+            return (reserveB * 1e18) / reserveA;
+        } else {
+            require(reserveB > 0, "No liquidity B");
+            return (reserveA * 1e18) / reserveB;
+        }
     }
 
     function getAmountOut(uint256 amountIn, uint256 reserveIn, uint256 reserveOut) public pure returns (uint256) {
