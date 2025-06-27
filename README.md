@@ -16,7 +16,7 @@ Crear un DEX básico (intercambiador descentralizado) entre dos tokens ERC-20, p
 
 ## 🔗 Contratos desplegados
 
-- Contrato `SimpleSwap`: [ENLACE_A_SEPOLIA_ETHERSCAN](https://sepolia.etherscan.io/address/...](https://sepolia.etherscan.io/address/0x445b9d8c04676E83e1eeb83ca8092327efd4a599#code)
+- Contrato `SimpleSwap`: [ENLACE_A_SEPOLIA_ETHERSCAN]([https://sepolia.etherscan.io/address/0x445b9d8c04676E83e1eeb83ca8092327efd4a599#code](https://sepolia.etherscan.io/address/0x445b9d8c04676E83e1eeb83ca8092327efd4a599))
 - Token A (`TestTokenA`): [ENLACE_TOKEN_A]([https://sepolia.etherscan.io/address/...](https://sepolia.etherscan.io/address/0x1d8Ec885fbC6446F28536ba6c3234C841Cd1f415)
 - Token B (`TestTokenB`): [ENLACE_TOKEN_B]([https://sepolia.etherscan.io/address/...](https://sepolia.etherscan.io/address/0x1d8Ec885fbC6446F28536ba6c3234C841Cd1f415)
 
